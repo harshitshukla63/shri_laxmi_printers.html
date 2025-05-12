@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shri Laxmi Printers — Delhi's Premier Printing Press</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #222;
+      background: linear-gradient(to right, #f8f9fa, #e0ecff);
+    }
+    header {
+      background: linear-gradient(to right, #ff512f, #dd2476);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background: #333;
+      padding: 0.75rem 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff512f;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .services, .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      border: 2px solid #ddd;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #ffffff;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background: #dd2476;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: #ff512f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shri Laxmi Printers</h1>
+    <p>Delhi's Premier Printing Press — Owned by Ankit Tiwari</p>
+  </header>
+
+  <nav>
+    <a href="#home" onclick="showPage('home')">Home</a>
+    <a href="#services" onclick="showPage('services')">Services</a>
+    <a href="#about" onclick="showPage('about')">About Us</a>
+    <a href="#gallery" onclick="showPage('gallery')">Gallery</a>
+    <a href="#contact" onclick="showPage('contact')">Contact</a>
+  </nav>
+
+  <section id="content">
+    <!-- Dynamic content will load here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Shri Laxmi Printers, Delhi. All rights reserved. | Owner: Ankit Tiwari</p>
+  </footer>
+
+  <script>
+    const pages = {
+      home: `
+        <h2>Welcome to Shri Laxmi Printers</h2>
+        <p>We specialize in high-quality custom printing solutions in Delhi. From eye-catching banners to elegant business cards — we bring your ideas to life with precision and vibrant colors.</p>
+      `,
+      services: `
+        <h2>Our Services</h2>
+        <div class="services">
+          <div class="card"><h3>Banners</h3><p>Custom banners for all occasions & businesses.</p></div>
+          <div class="card"><h3>Posters</h3><p>Vibrant posters for events & promotions.</p></div>
+          <div class="card"><h3>Business Cards</h3><p>Elegant and professional business cards.</p></div>
+          <div class="card"><h3>Flyers & Brochures</h3><p>Marketing materials crafted with care.</p></div>
+        </div>
+      `,
+      about: `
+        <h2>About Us</h2>
+        <p>Shri Laxmi Printers was founded by Ankit Tiwari with a vision to offer high-quality printing services at affordable rates in Delhi. With over 15 years of expertise, we combine traditional craftsmanship with modern printing technologies to deliver exceptional results for businesses and individuals alike.</p>
+      `,
+      gallery: `
+        <h2>Our Gallery</h2>
+        <div class="gallery">
+          <div class="card">Banner Sample #1</div>
+          <div class="card">Poster Sample #2</div>
+          <div class="card">Business Card Sample #3</div>
+          <div class="card">Flyer Sample #4</div>
+        </div>
+      `,
+      contact: `
+        <h2>Contact Us</h2>
+        <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.');">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+        <p><strong>Address:</strong> Delhi, India</p>
+        <p><strong>Phone:</strong> +91 9876543210</p>
+        <p><strong>Email:</strong> shrilaxmiprinters@gmail.com</p>
+      `
+    };
+
+    function showPage(page) {
+      document.getElementById('content').innerHTML = pages[page];
+    }
+
+    // Show home page on load
+    window.onload = () => showPage('home');
+  </script>
+</body>
+</html>
